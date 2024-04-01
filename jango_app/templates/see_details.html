@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-image: url('../static/images/collection1.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            h1{
+                text-align: center;
+                background-color: aliceblue;
+                border-radius: 10px;
+                text-shadow: 1px 1px gray;
+            }
+        }
+        table{
+            border: 1px solid rgb(105, 99, 99);
+            width: 600px;
+            border-radius: 10px;
+            /* backdrop-filter: blur(20px); */
+            background-color: white;
+            margin-left: 400px;
+            th,td{
+                padding: 8px;
+                font-size: 20px;
+                text-align: left;
+            }
+            tr{
+                border-bottom: 1px solid black;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Car Details</h1>
+    <div>
+        <table>
+            <tr>
+                <th>Car Name:</th>
+                <td>{{data.car_name}}</td>
+            </tr>
+            <tr>
+                <th>Brand:</th>
+                <td>{{data.brand_name}}</td>
+            </tr>
+            <tr>
+                <th>Colour:</th>
+                <td>{{data.colour}}</td>
+            </tr>
+            <tr>
+                <th>Dimension:</th>
+                <td>{{data.length_width_height}}</td>
+            </tr>
+            <tr>
+                <th>Displacement:</th>
+                <td>{{data.displacement}}</td>
+            </tr>
+            <tr>
+                <th>Power:</th>
+                <td>{{data.power}}</td>
+            </tr>
+            <tr>
+                <th>Torque:</th>
+                <td>{{data.torque}}</td>
+            </tr>
+            <tr>
+                <th>Cylinder:</th>
+                <td>{{data.cylinder}}</td>
+            </tr>
+            <tr>
+                <th>Transmision:</th>
+                <td>{{data.gear}}</td>
+            </tr>
+            <tr>
+                <th>Ground Clearance:</th>
+                <td>{{data.ground_clearance}}</td>
+            </tr>
+            <tr>
+                <th>Car type:</th>
+                <td>{{data.car_type}}</td>
+            </tr>
+            <tr>
+                <th>Engine:</th>
+                <td>{{data.engine}}</td>
+            </tr>
+            <tr>
+                <th>Fuel tank capacity:</th>
+                <td>{{data.fuel_tank}}</td>
+            </tr>
+            <tr>
+                <th>Onroad Prize:</th>
+                <td>{{data.prize}}</td>
+            </tr>
+        </table>
+    </div>
+    
+</body>
+</html>

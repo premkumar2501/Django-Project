@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <style>
+        .login_outer_box {
+            width: 100%;
+            height: 250%;
+            background-color: rgba(0, 0, 0, 0.404);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            z-index: 1;
+            display: none;
+        }
+
+        .login {
+            width: 40%;
+            height: 400px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 5px;
+            position: sticky;
+            top: 100px;
+            left: 400px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            box-shadow: 1px 1px 10px white;
+
+            h1 {
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                text-align: center;
+                background: transparent;
+                color: rgb(8, 8, 8);
+            }
+
+            .user,
+            .password {
+                width: 100%;
+                padding: 17px 5px;
+
+                input {
+                    width: 85%;
+                    margin-left: 43px;
+                    height: 40px;
+                    background: transparent;
+                    border: 1px solid rgba(0, 0, 0, 0.288);
+                    border-radius: 5px;
+                    font-size: 1.2rem;
+                    color: rgba(5, 5, 5, 0.986);
+                }
+
+                input::placeholder {
+                    color: rgb(189, 184, 184);
+                    padding-left: 5px;
+                }
+
+                label {
+                    font-size: 18px;
+                    margin-left: 42px;
+                    font-weight: normal;
+                }
+            }
+        }
+
+        .login .help_forget {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+
+            a {
+                text-decoration: none;
+                font-size: 1rem;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .login .submit {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+
+            input {
+                width: 40%;
+                height: 30px;
+                background-color: blue;
+                border: none;
+                border-radius: 5px;
+                font-size: 18px;
+                font-weight: bold;
+                color: white;
+            }
+        }
+
+        .login .submit input:hover {
+            cursor: pointer;
+            background-color: rgb(60, 60, 235);
+        }
+
+        .login button {
+            width: 40%;
+            height: 30px;
+            background-color: red;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            margin-left: 30%;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .login button:hover {
+            cursor: pointer;
+            background-color: rgba(252, 5, 5, 0.788);
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- <div class="navbar">
+        <div style="display: flex;">
+            <img src="../static/images/eagle.png" width="30px" height="30px">
+            <h2>Eagle Cars</h2>
+        </div>
+        <div class="content">
+            <h3 class="nav_content">
+                <button onclick="login_page()">Login</button>
+            </h3>
+            <h3 class="nav_content">
+                <a href="/register">Register</a>
+            </h3>
+            <h3 class="nav_content">
+                <a href="#about">About Us</a>
+            </h3>
+        </div>
+    </div> -->
+
+    <section class="nav-sec">
+        <div class="nav-bar">
+            <div>
+                <h1>Egle Cars</h1>
+            </div>
+            <div class="nav-content">
+                <div>
+                    <ul>
+                        <li><a href="/register">Register</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#">Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="login-btn">
+                <button onclick="login_page()">Login</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- <div class="image" style="background-image:linear-gradient( rgb(216, 203, 203), rgba(250, 242, 242, 0.55)), url(../static/images/headCar-img.png); background-repeat: no-repeat;
+    background-size: cover; height: 100vh; ">
+        <img src="../static/images/eagle.png" height="60%">
+        <div class="cars">
+            <div class="c">C</div>
+            <div class="a">A</div>
+            <div class="r">R</div>
+            <div class="s">S</div>
+        </div>
+    </div><br> -->
+
+    <section class="header-section">
+        <div class="header-content" data-aos="zoom-in-up" data-aos-duration="3000">
+            <div>
+                <h1>Egle Cars</h1>
+                <p>Budjet Friendly and best quality</p>
+                <div class="explore-btn">
+                    <a href="#" class="header-btn">Explore
+                        <i class='fas fa-arrow-right' style='font-size:26px'></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-sec">
+        <h1 class="head">Service</h1>
+        <div class="service">
+            <div class="service-card">
+                <img src="../static/images/service-img1.jpeg">
+                <div class="service-content">
+                    <p>Express your style on the road with our diverse Vehicle Color Variants, offering personalized
+                        choices for every journey.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="../static/images/service-img2.jpeg">
+                <div class="service-content">
+                    <p>Express your style on the road with our diverse Vehicle Color Variants, offering personalized
+                        choices for every journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="wrapper">
+            <img src="../static/images/random1.jpeg">
+            <img src="../static/images/random5.jpeg">
+            <img src="../static/images/random4.jpeg">
+            <img src="../static/images/random3.jpeg">
+            <img src="../static/images/random2.jpeg">
+            <img src="../static/images/random6.jpg">
+            <img src="../static/images/collection1.jpg">
+        </div>
+    </div>
+
+
+    <div class="login_outer_box" id="login_outer_box">
+        <div class="login">
+            <h1>Login</h1>
+            <form action="/user" method="POST" autocomplete="off">
+                {% csrf_token %}
+                <div class="user">
+                    <label>UserName</label>
+                    <input type="text" name="username" placeholder="Enter your UserName">
+                </div>
+                <div class="password">
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="Enter your Password">
+                </div>
+                <div class="help_forget">
+                    <a href="#">help</a>
+                    <a href="{% url 'passwordChange' %}">Forget password?</a>
+                </div>
+                <div class="submit">
+                    <input type="submit" value="Login">
+                </div>
+            </form>
+            <button onclick="close_login_page()">Cancel</button>
+            <p style="text-align: center; font-size: 14px;">If you enter incorrect username or password, page not move
+                to next page.</p>
+        </div>
+    </div>
+
+    <!-- <footer class="footer">
+        <div class="address">
+            <h2>Contect Us</h2>
+            <p>
+                <i class='fas fa-map-marker-alt'></i>
+                79/15 Alangulam Road
+            </p>
+            <p style="padding-left: 48px;">Keelapavoor</p>
+            <p>
+                <i class='fas fa-phone-alt'></i>
+                Phone: 9629866264
+            </p>
+            <p>
+                <i class='fas fa-envelope-square'></i>
+                Email: premkumar64412@gmail.com
+            </p>
+            <p>
+                <i class='fab fa-chrome'></i>
+                www.eaglecars.com
+            </p>
+            <div class="enjoy">
+                <div style="display: flex; gap: 10px; padding-bottom: 5px;">
+                    <img src="../static/images/eagle.png" width="20px" height="20px">
+                    <p>Eagle Cars</p>
+                </div>
+                <h4>ENJOY YOUR JOURNEY WITH YOUR EAGLE</h4>
+            </div>
+        </div>
+        <div class="media">
+            <i class='fab fa-instagram'
+                style='font-size:25px;color:rgb(255, 0, 212);background-color: white;border-radius: 5px;'></i>
+            <i class='fab fa-twitter-square'
+                style='font-size:25px;color:rgb(0, 247, 255);background-color: white;border-radius: 5px;'></i>
+            <i class='fab fa-facebook-square'
+                style='font-size:25px;color:rgb(0, 132, 255);background-color: white;border-radius: 5px;'></i>
+            <i class='fab fa-youtube' style='font-size:25px;color:red;background-color: white;border-radius: 5px;'></i>
+        </div>
+
+    </footer> -->
+
+    <footer class="footer">
+        <div class="footer-sec">
+            <div>
+                <div style="display: flex; gap: 10px; padding-bottom: 5px;">
+                    <img src="../static/images/eagle.png" width="20px" height="20px">
+                    <p>Eagle Cars</p>
+                </div>
+                <h4>ENJOY YOUR JOURNEY WITH YOUR EAGLE</h4>
+            </div>
+            <div class="contect">
+                <h2>Contect Us</h2>
+                
+                <p>
+                    <i class='fas fa-envelope-square'></i>
+                    Email: premkumar@gmail.com
+                </p>
+                <p>
+                    <i class='fab fa-chrome'></i>
+                    www.eaglecars.com
+                </p>
+            </div>
+            <div class="media">
+                <i class='fab fa-instagram'
+                    style='font-size:25px;color:rgb(255, 0, 212);background-color: white;border-radius: 5px;'></i>
+                <i class='fab fa-twitter-square'
+                    style='font-size:25px;color:rgb(0, 247, 255);background-color: white;border-radius: 5px;'></i>
+                <i class='fab fa-facebook-square'
+                    style='font-size:25px;color:rgb(0, 132, 255);background-color: white;border-radius: 5px;'></i>
+                <i class='fab fa-youtube'
+                    style='font-size:25px;color:red;background-color: white;border-radius: 5px;'></i>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="{% static 'js/login.js' %}"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

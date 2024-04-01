@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car collections</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+        .profile {
+            min-height: 350%;
+            position: absolute;
+            top: 0px;
+            width: 100%;
+            background-color: rgba(14, 13, 13, 0.452);
+            display: flex;
+            justify-content: center;
+            z-index: 1;
+            display: none;
+            h1{
+                background-color: bisque;
+                color: 1px 2px blue;
+                text-align: center ;
+                position: sticky;
+                top: 0;
+            }
+
+            table {
+                width: 400px;
+                position: sticky;
+                top: 100px;
+                border-radius: 10px;
+                margin-left: 500px;
+                th,td {
+                    padding: 5px 10px;
+                    color: white;
+                    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                    font-size: 25px;
+                    border: 1px wheat;
+                    text-align: left;
+                }
+                tr td button{
+                    width: 60%;
+                    height: 30px;
+                    background-color: rgb(253, 53, 53);
+                    border: none;
+                    border-radius: 10px;
+                }
+            }
+        }
+        
+    </style>
+</head>
+
+<body style="background-color: white;">
+    <div class="navbar" style="background-color: white; border: none;">
+        <div style="display: flex;">
+            <img src="../static/images/eagle.png" width="30px" height="30px">
+            <h2>Eagle Cars</h2>
+        </div>
+        <button onclick="side()">
+            <i class="fa fa-list-ul" style="font-size:24px"></i>
+        </button>
+    </div>
+    <div class="slide" id="side">
+        <ul>
+            <li>
+                <button onclick="seeprofile()">Profile</button>
+                <i class='fas fa-user-circle' style='font-size:20px'></i>
+            </li>
+            <li>
+                <a href="seeBookedCars">Bookmark</a>
+                <i class='fas fa-thumbtack' style='font-size:20px'></i>
+            </li>
+            <li>
+                <a href="#">Settings</a>
+                <i class='fas fa-wrench' style='font-size:20px'></i>
+            </li>
+            <li>
+                <a href="#">Add another vehicle</a>
+                <i class='fas fa-edit' style='font-size:20px'></i>
+            </li>
+        </ul>
+    </div>
+
+    <div class="search">
+        <i class='fas fa-search' style='font-size:24px; position: relative; left: 595px; top: 3px;'></i>
+        <input type="text" placeholder="Search car or brand" id="search" autocomplete="off">
+    </div>
+
+    <div class="collection" id="search_detail">
+        <div id="cars" class="more_detail">
+            <img src="../static/images/alto.jpg" width="250px" height="200px">
+            <h3>ALTO 800</h3>
+            <h5>Maruthi Suzuki</h5>
+            <a href="/detail/ALTO" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/altroz.jpg" width="250px" height="200px">
+            <h3>ALTROZ</h3>
+            <h5>TATA</h5>
+            <a href="/detail/ALTROZ" style="color: black;" onclick="sendImage()">See more</a><br>
+        </div>
+        <div>
+            <img src="../static/images/bolero.webp" width="250px" height="200px">
+            <h3>BOLERO</h3>
+            <h5>Manindra</h5>
+            <a href="/detail/BOLERO" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/boleroNeo.jpg" width="250px" height="200px">
+            <h3>BOLERO Neo</h3>
+            <h5>Mahindra</h5>
+            <a href="/detail/BOLERONeo" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/jimny.jpg" width="250px" height="200px">
+            <h3>JIMNY</h3>
+            <h5>Maruthi Suzuki</h5>
+            <a href="/detail/JIMNY" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/city.jpg" width="250px" height="200px">
+            <h3>CITY</h3>
+            <h5>Honda</h5>
+            <a href="/detail/CITY" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/civic.jpg" width="250px" height="200px">
+            <h3>CIVIC</h3>
+            <h5>Honda</h5>
+            <a href="/detail/CIVIC" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/creta.jpg" width="250px" height="200px">
+            <h3>CRETA</h3>
+            <h5>Hyundai</h5>
+            <a href="/detail/CRETA" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/dzire.jpg" width="250px" height="200px">
+            <h3>DRIZE</h3>
+            <h5>Maruthi Suzuki</h5>
+            <a href="/detail/DRIZE" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/elevate.jpg" width="250px" height="150px">
+            <h3>ELEVATE</h3>
+            <h5>Honda</h5>
+            <a href="/detail/ELEVATE" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/fortuner1.jpg" width="250px" height="200px">
+            <h3>FORTUNER</h3>
+            <h5>Toyota</h5>
+            <a href="/detail/FORTUNER" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/glanza.jpg" width="250px" height="200px">
+            <h3>GLANZA</h3>
+            <h5>Toyota</h5>
+            <a href="/detail/GLANZA" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/harrier.webp" width="250px" height="200px">
+            <h3>HARRIER</h3>
+            <h5>TATA</h5>
+            <a href="/detail/HERRIER" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/superb.jpg" width="250px" height="200px">
+            <h3>SUPERB</h3>
+            <h5>Skoda</h5>
+            <a href="/detail/SUPERB" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/i20.jpg" width="250px" height="200px">
+            <h3>i20</h3>
+            <h5>Hyundai</h5>
+            <a href="/detail/i20" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/innova_hycross.png" width="250px" height="150px">
+            <h3>INNOVA HYCROSS</h3>
+            <h5>Toyota</h5>
+            <a href="/detail/INNOVA" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/kushaq.jpg" width="250px" height="200px">
+            <h3>KUSHAQ</h3>
+            <h5>Skoda</h5>
+            <a href="/detail/KUSHAQ" style="color: black;">See more</a>
+        </div>
+
+        <div>
+            <img src="../static/images/nexaEV.jpg" width="250px" height="200px">
+            <h3>NEXA EV</h3>
+            <h5>TATA</h5>
+            <a href="/detail/NEXA EV" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/octivia.jpg" width="250px" height="200px">
+            <h3>OCTIVIA</h3>
+            <h5>Skoda</h5>
+            <a href="/detail/OCTIVIA" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/punch.jpg" width="250px" height="200px">
+            <h3>PUNCH</h3>
+            <h5>TATA</h5>
+            <a href="/detail/PUNCH" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/rumion.jpg" width="250px" height="200px">
+            <h3>RUMION</h3>
+            <h5>Toyota</h5>
+            <a href="/detail/RUMION" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/scarpio.jpg" width="250px" height="200px">
+            <h3>SCARPIO</h3>
+            <h5>Mahindra</h5>
+            <a href="/detail/SCORPIO" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/slavia.jpeg" width="250px" height="200px">
+            <h3>SLAVIA</h3>
+            <h5>Skoda</h5>
+            <a href="/detail/SLAVIA" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/thar.jpg" width="250px" height="200px">
+            <h3>THAR</h3>
+            <h5>Mahindra</h5>
+            <a href="/detail/THAR" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/tiago.jpg" width="250px" height="200px">
+            <h3>TIAGO</h3>
+            <h5>TATA</h5>
+            <a href="/detail/TIAGO" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/tiagun.jpg" width="250px" height="200px">
+            <h3>TIAGUN</h3>
+            <h5>Volkswagan</h5>
+            <a href="/detail/TIAGUN" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/venue.jpg" width="250px" height="200px">
+            <h3>VENUE</h3>
+            <h5>Hyundai</h5>
+            <a href="/detail/VENUE" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/verna.jpeg" width="250px" height="200px">
+            <h3>VERNA</h3>
+            <h5>Hyundai</h5>
+            <a href="/detail/VERNA" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/virtus1.jpg" width="250px" height="200px">
+            <h3>VIRTUS</h3>
+            <h5>Volkswagan</h5>
+            <a href="/detail/VIRTUS" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/xuv700.jpg" width="250px" height="200px">
+            <h3>XUV700</h3>
+            <h5>Mahindra</h5>
+            <a href="/detail/XUV700" style="color: black;">See more</a>
+        </div>
+        <div>
+            <img src="../static/images/yaris.png" width="250px" height="200px">
+            <h3>YARIS</h3>
+            <h5>Toyota</h5>
+            <a href="/detail/YARIS" style="color: black;">See more</a>
+        </div>
+    </div>
+
+    <div class="profile" id="my_profile">
+        <h1>Your Profile</h1>
+        <table style="border: 1px solid bisque;">
+            <tr>
+                <th>Name:</th>
+                <td>{{mydata.Name}}</td>
+            </tr>
+            <tr>
+                <th>Gender:</th>
+                <td>{{mydata.Gender}}</td>
+            </tr>
+            <tr>
+                <th>Date of birth:</th>
+                <td>{{mydata.Date_of_birth}}</td>
+            </tr>
+            <tr>
+                <th>Phone:</th>
+                <td>{{mydata.Phone}}</td>
+            </tr>
+            <tr>
+                <th>Email:</th>
+                <td>{{mydata.Email}}</td>
+            </tr>
+            <tr>
+                <td> <button onclick="closeprofile()">Back</button></td>
+
+            </tr>
+        </table>
+    </div>
+    <script>
+        $("document").ready(function () {
+            $('#search').keyup(function () {
+                var data = $(this).val().toLowerCase()
+                $('#search_detail div').filter(function () {
+                    $(this).toggle(
+                        $(this).text().toLowerCase().indexOf(data) > -1
+                    );
+                });
+            });
+        });
+    </script>
+    <script>
+        var watch =  document.getElementById('my_profile')
+        const navbar = document.getElementById('side')
+        function side(){    
+            if(navbar.style.display == 'none'){
+                navbar.style.display = 'block'
+            }
+            else{
+                navbar.style.display = 'none'
+            }
+        }
+        function seeprofile(){
+            watch.style.display = 'block'
+        }
+        function closeprofile(){
+            watch.style.display = 'none'
+        }
+    </script>
+</body>
+
+</html>

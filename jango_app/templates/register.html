@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+</head>
+<body>
+    <header style="display: flex; justify-content: center;">
+        <h1>Registration</h1>
+        
+    </header>
+    <main>
+        <form action="/register" autocomplete="off" method="POST">
+        {% csrf_token %}
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td>
+                        <input type="text" name="name">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>
+                        <input type="text" name="gender">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date of birth</td>
+                    <td>
+                        <input type="date" name="dateofbirth">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone</td>
+                    <td>
+                        <input type="text" name="phone">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>
+                        <input type="email" name="email">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>
+                        <textarea name="address" cols="35" rows="5" style="width: 100%; margin-left: 5px;"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Enter OTP</td>
+                    <td>
+                        <input type="text" id="enter_otp">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="password" name="password"  id="new_lock" style="display: none;" placeholder="Create new password">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" onclick="your_username()" id="submit" style="border: rgb(6, 224, 6);
+                        background-color: rgb(16, 226, 44); font-size: 16px;padding: 5px 5px;
+                        color: white; display: none;">
+                    </td>
+                    <td>
+                        <a href="{% url 'home' %}" style="float: right;text-decoration: none;
+                        color: white; border: 1px solid red; background-color: red; padding: 5px 40px;
+                        border-radius: 10px;">Cancel</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <p style="text-align: center; margin-top: 5px;">[Note: You can submit correct OTP in above box. Then the Password option was displayed.]</p>
+        
+        <div style="display: flex; justify-content: center; gap: 50px; margin-top: 40px;
+        position: sticky; bottom: 0;" id="send_otp_button">
+
+            <button onclick="otp_send()"  style="border: none; background-color: orange;
+            color: white; border-radius: 10px; padding: 5px 10px;">Send OTP</button>
+
+            <button onclick="chick()" style="border: none; background-color: lightskyblue;
+            border-radius: 10px; padding:5px 10px;">OTP Submit</button><br>
+        </div>
+    </main>
+    <h1 id="success" style="background-color: rgb(37, 137, 231);color: white;
+        text-align: center; text-shadow: 1px 2px 1px tomato; display: none;">Registration Successfully.</h1>
+    <script>
+        const otp = Math.floor(Math.random()*10000)
+        var new_password = document.getElementById('new_lock')
+        var submit_detail = document.getElementById('submit')
+        var otp_button = document.getElementById('send_otp_button')
+
+        function your_username(){
+            var login = document.getElementById('success')
+            login.style.display = 'block'
+            alert('Your user name is your mail ID')
+        }
+
+        function otp_send(){
+            alert('Your OTP is ' + otp)
+        }
+        
+        function chick(){
+            var your_otp = document.getElementById('enter_otp').value
+            
+            if(otp == your_otp){
+                new_password.style.display = 'block'
+                submit_detail.style.display = 'block'
+                otp_button.style.display = 'none'
+            }
+            else{
+                alert('Enter the correct OTP.')
+            }
+        }
+    </script>
+</body>
+</html>
